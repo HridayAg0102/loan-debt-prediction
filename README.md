@@ -1,6 +1,6 @@
 
 
-# LOAN DEBT PREDICTOR
+# LOAN DEBT PREDICTOR MODEL
 
 
 ![image](https://user-images.githubusercontent.com/76818035/170854069-f12bae9e-b52e-44f6-9bd1-9723ab7daf49.png)
