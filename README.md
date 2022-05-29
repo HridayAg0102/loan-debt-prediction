@@ -2,12 +2,14 @@
 
 # LOAN DEBT PREDICTOR
 
+
+![image](https://user-images.githubusercontent.com/76818035/170854069-f12bae9e-b52e-44f6-9bd1-9723ab7daf49.png)
+
     
 
 > **Target**
 
 Many times business owners tend to take loans in order to clear their previous debts or for expansion of business or any important task. This loan may lead them to get stuck in a vicious cycle of Loan debts. This model predicts how safe it is for you to take this much amount of loan.  
-
       
 
 > **Dataset Columns: (expected: can vary)**
