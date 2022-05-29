@@ -1,4 +1,3 @@
-
 def loan_cost_prediction(revenue,
                          profit_percentage_last_year,
                          simple_interest,
@@ -10,14 +9,14 @@ def loan_cost_prediction(revenue,
                          competition_scale,
                          management_effectivity,
                          startup,
-                         cibil_score, 
-                         inflation = 4 ):
+                         cibil_score,
+                         inflation=4):
 
     # balance the decrease in amount of money
     interest_rate -= inflation
 
     # substract from the net revenue
-    external_cost = (len(str(amount_of_loan))-1)*(
+    external_cost = (pow(10, len(str(amount_of_loan))-2))*(
         5*(1-sustainability) +
         3*(1-management_effectivity) +
         2*(startup) +
@@ -30,18 +29,23 @@ def loan_cost_prediction(revenue,
         (pow((1 + interest_rate/100), time_to_repay))
 
     # the net profit conceded over the period of time
-    net_revenue = revenue*profit_percentage_last_year*time_to_repay
+    net_revenue = revenue*profit_percentage_last_year*time_to_repay/100
 
-    residue_left_after_time = net_revenue - external_cost - loan_interest_cost - past_debt_to_repay
+    # print(external_cost, loan_interest_cost, net_revenue)
+
+    residue_left_after_time = net_revenue - external_cost - \
+        loan_interest_cost - past_debt_to_repay
+
+    # print(residue_left_after_time)
 
     if residue_left_after_time <= 0:
-        if abs(residue_left_after_time) > 0.1*net_revenue:
-            return -2 # High Loss
+        if abs(residue_left_after_time) > 0.5*net_revenue*profit_percentage_last_year/100:
+            return -2  # High Loss
         else:
-            return -1 # small loss
+            return -1  # small loss
     else:
-        if (residue_left_after_time) < 0.1*net_revenue:
-            return 1 # small profit
+        if (residue_left_after_time) < 0.5*net_revenue*profit_percentage_last_year/100:
+            return 1  # small profit
         else:
-            return 2 # high profit
-
+            return 2  # high profit
+        
